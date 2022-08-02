@@ -22,9 +22,9 @@ import LightModeIcon from "@mui/icons-material/LightMode";
 
 const StyledContainer = styled.div`
   flex: 1;
-  background-color: #202020;
+  background-color: ${({ theme }) => theme.bg};
   height: 100vh;
-  color: white;
+  color: ${({ theme }) => theme.text};
   font-size: 14px;
   position: sticky;
   top: 0;
@@ -39,6 +39,7 @@ const StyledLogo = styled.div`
   align-items: center;
   gap: 5px;
   font-weight: bold;
+  padding: 18px 26px 0 26px;
 `;
 
 const StyledImg = styled.img`
@@ -56,7 +57,7 @@ const StyledItem = styled.div`
 
 const StyledHr = styled.hr`
   margin: 15px 0;
-  border: 0.5px solid #373737;
+  border: 0.5px solid ${({ theme }) => theme.soft}; ;
 `;
 
 const StyledLogin = styled.div``;
@@ -78,12 +79,11 @@ const StyledLoginButton = styled.button`
 export function Menu() {
   return (
     <StyledContainer>
+      <StyledLogo>
+        <StyledImg src={YtLogo} />
+        Youtube
+      </StyledLogo>
       <StyledWrapper>
-        <StyledLogo>
-          <StyledImg src={YtLogo} />
-          Youtube
-        </StyledLogo>
-
         <StyledItem>
           <HomeIcon />
           Home
