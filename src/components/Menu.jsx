@@ -6,6 +6,7 @@ import SubscriptionsOutlinedIcon from "@mui/icons-material/SubscriptionsOutlined
 
 import VideoLibraryOutlinedIcon from "@mui/icons-material/VideoLibraryOutlined";
 import HistoryOutlinedIcon from "@mui/icons-material/HistoryOutlined";
+import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 
 import LibraryMusicOutlinedIcon from "@mui/icons-material/LibraryMusicOutlined";
 import SportsBasketballOutlinedIcon from "@mui/icons-material/SportsBasketballOutlined";
@@ -24,6 +25,9 @@ const StyledContainer = styled.div`
   background-color: #202020;
   height: 100vh;
   color: white;
+  font-size: 14px;
+  position: sticky;
+  top: 0;
 `;
 
 const StyledWrapper = styled.div`
@@ -46,7 +50,29 @@ const StyledItem = styled.div`
   align-items: center;
   gap: 20px;
   cursor: pointer;
-  font-size: 14px;
+
+  padding: 7.5px 0;
+`;
+
+const StyledHr = styled.hr`
+  margin: 15px 0;
+  border: 0.5px solid #373737;
+`;
+
+const StyledLogin = styled.div``;
+
+const StyledLoginButton = styled.button`
+  padding: 5px 15px;
+  background-color: transparent;
+  border: 1px solid #3ea6ff;
+  color: #3ea6ff;
+  border-radius: 3px;
+  font-weight: bold;
+  margin-top: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
 `;
 
 export function Menu() {
@@ -70,6 +96,7 @@ export function Menu() {
           <SubscriptionsOutlinedIcon />
           Subscriptions
         </StyledItem>
+        <StyledHr />
 
         <StyledItem>
           <VideoLibraryOutlinedIcon />
@@ -79,6 +106,16 @@ export function Menu() {
           <HistoryOutlinedIcon />
           History
         </StyledItem>
+        <StyledHr />
+
+        <StyledLogin>
+          Sign in to like videos, comment and subscribe.
+          <StyledLoginButton>
+            <AccountCircleOutlinedIcon />
+            Sign in
+          </StyledLoginButton>
+        </StyledLogin>
+        <StyledHr />
 
         <StyledItem>
           <LibraryMusicOutlinedIcon />
@@ -104,6 +141,7 @@ export function Menu() {
           <LiveTvIcon />
           Live
         </StyledItem>
+        <StyledHr />
 
         <StyledItem>
           <SettingsIcon />
