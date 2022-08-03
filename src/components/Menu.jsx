@@ -53,8 +53,12 @@ const StyledItem = styled.div`
   align-items: center;
   gap: 20px;
   cursor: pointer;
-
   padding: 7.5px 0;
+  transition: all 0.1s ease-in-out;
+
+  &:hover {
+    background-color: ${({ theme }) => theme.soft};
+  }
 `;
 
 const StyledHr = styled.hr`

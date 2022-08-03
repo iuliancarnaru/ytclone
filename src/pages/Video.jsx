@@ -4,6 +4,7 @@ import ThumbDownAltOutlinedIcon from "@mui/icons-material/ThumbDownAltOutlined";
 import IosShareOutlinedIcon from "@mui/icons-material/IosShareOutlined";
 import SaveOutlinedIcon from "@mui/icons-material/SaveOutlined";
 import { Comments } from "../components/Comments";
+import { Card } from "../components/Card";
 
 const StyledContainer = styled.div`
   display: flex;
@@ -165,7 +166,13 @@ export function Video() {
         <Comments />
       </StyledContent>
 
-      <StyledRecommendation>RECOMMENDATION</StyledRecommendation>
+      <StyledRecommendation>
+        <Card type="list" />
+        <Card type="list" />
+        <Card type="list" />
+        <Card type="list" />
+        <Card type="list" />
+      </StyledRecommendation>
     </StyledContainer>
   );
 }

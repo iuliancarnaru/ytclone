@@ -16,11 +16,22 @@ const StyledAvatar = styled.img`
 const StyledDetails = styled.div`
   display: flex;
   flex-direction: column;
+  color: ${({ theme }) => theme.text};
 `;
 
-const StyledName = styled.span``;
-const StyledDate = styled.span``;
-const StyledText = styled.p``;
+const StyledName = styled.span`
+  font-size: 13px;
+`;
+
+const StyledDate = styled.span`
+  font-size: 12px;
+  font-weight: 400;
+  color: ${({ theme }) => theme.textSoft};
+  margin-left: 5px;
+`;
+const StyledText = styled.p`
+  font-size: 14px;
+`;
 
 export function Comment() {
   return (
