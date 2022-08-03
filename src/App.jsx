@@ -1,3 +1,4 @@
+import { useState } from "react";
 import styled, { ThemeProvider } from "styled-components";
 import { Menu } from "./components/Menu";
 import { Navbar } from "./components/Navbar";
@@ -15,10 +16,12 @@ const StyledMain = styled.div`
 const StyedWrapper = styled.div``;
 
 function App() {
+  const [darkMode, setDarkMode] = useState(true);
+
   return (
-    <ThemeProvider theme={darkTheme}>
+    <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
       <StyledContainer>
-        <Menu />
+        <Menu darkMode={darkMode} setDarkMode={setDarkMode} />
         <StyledMain>
           <Navbar />
           <StyedWrapper>Video cards</StyedWrapper>

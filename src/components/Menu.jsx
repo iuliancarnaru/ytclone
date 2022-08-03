@@ -76,7 +76,7 @@ const StyledLoginButton = styled.button`
   gap: 5px;
 `;
 
-export function Menu() {
+export function Menu({ darkMode, setDarkMode }) {
   return (
     <StyledContainer>
       <StyledLogo>
@@ -155,7 +155,7 @@ export function Menu() {
           <HelpOutlineIcon />
           Help
         </StyledItem>
-        <StyledItem>
+        <StyledItem onClick={() => setDarkMode(!darkMode)}>
           <LightModeIcon />
           Light Mode
         </StyledItem>
