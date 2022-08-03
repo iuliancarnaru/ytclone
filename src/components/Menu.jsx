@@ -23,7 +23,7 @@ import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
 
 const StyledContainer = styled.div`
   flex: 1;
-  background-color: ${({ theme }) => theme.bg};
+  background-color: ${({ theme }) => theme.bgLighter};
   height: 100vh;
   color: ${({ theme }) => theme.text};
   font-size: 14px;
@@ -77,6 +77,13 @@ const StyledLoginButton = styled.button`
   gap: 5px;
 `;
 
+const StyledTitle = styled.h2`
+  font-size: 14px;
+  font-weight: bold;
+  color: #aaa;
+  margin-bottom: 20px;
+`;
+
 export function Menu({ darkMode, setDarkMode }) {
   return (
     <StyledContainer>
@@ -118,6 +125,7 @@ export function Menu({ darkMode, setDarkMode }) {
         </StyledLogin>
         <StyledHr />
 
+        <StyledTitle>Best of Youtube</StyledTitle>
         <StyledItem>
           <LibraryMusicOutlinedIcon />
           Music
