@@ -18,7 +18,8 @@ import LiveTvIcon from "@mui/icons-material/LiveTv";
 import SettingsIcon from "@mui/icons-material/Settings";
 import FlagIcon from "@mui/icons-material/Flag";
 import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
-import LightModeIcon from "@mui/icons-material/LightMode";
+import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
+import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
 
 const StyledContainer = styled.div`
   flex: 1;
@@ -156,8 +157,8 @@ export function Menu({ darkMode, setDarkMode }) {
           Help
         </StyledItem>
         <StyledItem onClick={() => setDarkMode(!darkMode)}>
-          <LightModeIcon />
-          Light Mode
+          {darkMode ? <LightModeOutlinedIcon /> : <DarkModeOutlinedIcon />}
+          {darkMode ? `Light` : `Dark`} Mode
         </StyledItem>
       </StyledWrapper>
     </StyledContainer>

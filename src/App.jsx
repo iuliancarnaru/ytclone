@@ -10,7 +10,7 @@ const StyledContainer = styled.div`
 
 const StyledMain = styled.div`
   flex: 7;
-  background-color: #181818;
+  background-color: ${({ theme }) => theme.bgLighter};
 `;
 
 const StyedWrapper = styled.div``;
