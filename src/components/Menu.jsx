@@ -20,6 +20,7 @@ import FlagIcon from "@mui/icons-material/Flag";
 import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
 import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
+import { Link } from "react-router-dom";
 
 const StyledContainer = styled.div`
   flex: 1;
@@ -84,13 +85,21 @@ const StyledTitle = styled.h2`
   margin-bottom: 20px;
 `;
 
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: inherit;
+`;
+
 export function Menu({ darkMode, setDarkMode }) {
   return (
     <StyledContainer>
-      <StyledLogo>
-        <StyledImg src={YtLogo} />
-        Youtube
-      </StyledLogo>
+      <StyledLink to="/">
+        <StyledLogo>
+          <StyledImg src={YtLogo} />
+          Youtube
+        </StyledLogo>
+      </StyledLink>
+
       <StyledWrapper>
         <StyledItem>
           <HomeIcon />
