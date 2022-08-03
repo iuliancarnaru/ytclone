@@ -23,6 +23,10 @@ const StyledInput = styled.input`
   outline: none;
   padding: 5px;
   width: 100%;
+
+  &::placeholder {
+    color: ${({ theme }) => theme.text};
+  }
 `;
 
 export function Comments() {

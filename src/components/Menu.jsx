@@ -131,10 +131,12 @@ export function Menu({ darkMode, setDarkMode }) {
 
         <StyledLogin>
           Sign in to like videos, comment and subscribe.
-          <StyledLoginButton>
-            <AccountCircleOutlinedIcon />
-            Sign in
-          </StyledLoginButton>
+          <StyledLink to="/signin">
+            <StyledLoginButton>
+              <AccountCircleOutlinedIcon />
+              Sign in
+            </StyledLoginButton>
+          </StyledLink>
         </StyledLogin>
         <StyledHr />
 
