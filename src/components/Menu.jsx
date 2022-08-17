@@ -105,18 +105,24 @@ export function Menu({ darkMode, setDarkMode }) {
       </StyledLink>
 
       <StyledWrapper>
-        <StyledItem>
-          <HomeIcon />
-          Home
-        </StyledItem>
-        <StyledItem>
-          <ExploreOutlinedIcon />
-          Explore
-        </StyledItem>
-        <StyledItem>
-          <SubscriptionsOutlinedIcon />
-          Subscriptions
-        </StyledItem>
+        <StyledLink to="/random">
+          <StyledItem>
+            <HomeIcon />
+            Home
+          </StyledItem>
+        </StyledLink>
+        <StyledLink to="/trends">
+          <StyledItem>
+            <ExploreOutlinedIcon />
+            Explore
+          </StyledItem>
+        </StyledLink>
+        <StyledLink to="/subscriptions">
+          <StyledItem>
+            <SubscriptionsOutlinedIcon />
+            Subscriptions
+          </StyledItem>
+        </StyledLink>
         <StyledHr />
 
         <StyledItem>

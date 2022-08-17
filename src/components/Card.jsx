@@ -1,5 +1,8 @@
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { format } from "timeago.js";
+import axios from "axios";
 
 const StyledContainer = styled.div`
   width: ${({ type }) => type !== "list" && "360px"};
@@ -52,23 +55,37 @@ const StyledLink = styled(Link)`
   color: inherit;
 `;
 
-export function Card({ type }) {
+export function Card({ type, video }) {
+  const [channel, setChannel] = useState({});
+  const [error, setError] = useState({});
+
+  useEffect(() => {
+    const fetchChannel = async () => {
+      try {
+        const response = await axios.get(`/api/users/find/${video.userId}`);
+        setChannel(response.data);
+      } catch (error) {
+        setError(error);
+      }
+    };
+
+    fetchChannel();
+  }, [video]);
+
+  console.log(error);
+
   return (
     <StyledLink to="/video/a12d31">
       <StyledContainer type={type}>
-        <StyledImage
-          type={type}
-          src="https://i.ytimg.com/vi/yIaXoop8gl4/hqdefault.jpg?sqp=-oaymwEcCOADEI4CSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDcwGhI3AP9CwX9Z6CnFU2npmqcSw"
-        />
+        <StyledImage type={type} src={video.imgUrl} />
         <StyledDetails type={type}>
-          <StyledChannelImage
-            type={type}
-            src="https://yt3.ggpht.com/ytc/AMLnZu9U1YR60O4hjCfJHtYSjlpRNJx07bOADEDb6X-d=s68-c-k-c0x00ffffff-no-rj"
-          />
+          <StyledChannelImage type={type} src={channel.img} />
           <StyledTextContainer>
-            <StyledTitle>React Video Sharing App UI Design</StyledTitle>
-            <StyledChannelName>Tech Gear Talk</StyledChannelName>
-            <StyledInfo>19K views &#x2022; 2 years ago</StyledInfo>
+            <StyledTitle>{video.title}</StyledTitle>
+            <StyledChannelName>{channel.name}</StyledChannelName>
+            <StyledInfo>
+              {video.views} views &#x2022; {format(video.createdAt)}
+            </StyledInfo>
           </StyledTextContainer>
         </StyledDetails>
       </StyledContainer>
