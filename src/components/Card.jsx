@@ -72,8 +72,6 @@ export function Card({ type, video }) {
     fetchChannel();
   }, [video]);
 
-  console.log(error);
-
   return (
     <StyledLink to="/video/a12d31">
       <StyledContainer type={type}>

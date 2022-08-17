@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { useSelector } from "react-redux";
 import YtLogo from "../assets/logo.png";
 import HomeIcon from "@mui/icons-material/Home";
 import ExploreOutlinedIcon from "@mui/icons-material/ExploreOutlined";
@@ -95,6 +96,8 @@ const StyledLink = styled(Link)`
 `;
 
 export function Menu({ darkMode, setDarkMode }) {
+  const { user } = useSelector((state) => state.user);
+
   return (
     <StyledContainer>
       <StyledLink to="/">
@@ -117,7 +120,7 @@ export function Menu({ darkMode, setDarkMode }) {
             Explore
           </StyledItem>
         </StyledLink>
-        <StyledLink to="/subscriptions">
+        <StyledLink to="/subscribed">
           <StyledItem>
             <SubscriptionsOutlinedIcon />
             Subscriptions
@@ -135,16 +138,20 @@ export function Menu({ darkMode, setDarkMode }) {
         </StyledItem>
         <StyledHr />
 
-        <StyledLogin>
-          Sign in to like videos, comment and subscribe.
-          <StyledLink to="/signin">
-            <StyledLoginButton>
-              <AccountCircleOutlinedIcon />
-              Sign in
-            </StyledLoginButton>
-          </StyledLink>
-        </StyledLogin>
-        <StyledHr />
+        {!user && (
+          <>
+            <StyledLogin>
+              Sign in to like videos, comment and subscribe.
+              <StyledLink to="/signin">
+                <StyledLoginButton>
+                  <AccountCircleOutlinedIcon />
+                  Sign in
+                </StyledLoginButton>
+              </StyledLink>
+            </StyledLogin>
+            <StyledHr />
+          </>
+        )}
 
         <StyledTitle>Best of Youtube</StyledTitle>
         <StyledItem>

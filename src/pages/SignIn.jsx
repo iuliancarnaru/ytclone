@@ -1,5 +1,8 @@
-import { Link } from "react-router-dom";
+import axios from "axios";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
 import styled from "styled-components";
+import { loginSuccess, loginFailure, loginStart } from "../redux/userSlice";
 
 const StyledContainer = styled.div`
   display: flex;
@@ -37,6 +40,7 @@ const StyledInput = styled.input`
   background-color: transparent;
   width: 100%;
   outline: none;
+  color: ${({ theme }) => theme.text};
 
   &::placeholder {
     color: ${({ theme }) => theme.text};
@@ -69,20 +73,65 @@ const StyledLink = styled.span`
 `;
 
 export function SignIn() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const dispatch = useDispatch();
+
+  const handleLogin = async (event) => {
+    event.preventDefault();
+    dispatch(loginStart());
+    try {
+      const response = await axios.post("/api/auth/signin", {
+        name,
+        password,
+      });
+      dispatch(loginSuccess(response.data));
+    } catch (error) {
+      dispatch(loginFailure());
+    }
+  };
+
+  const handleSignup = () => {};
+
   return (
     <StyledContainer>
       <StyledWrapper>
         <StyledTitle>Sign in</StyledTitle>
         <StyledSubtitle>to continue to Youtube</StyledSubtitle>
-        <StyledInput type="text" placeholder="username" />
-        <StyledInput type="password" placeholder="password" />
-        <StyledButton>Sign in</StyledButton>
+        <StyledInput
+          type="text"
+          placeholder="username"
+          name="username"
+          onChange={(event) => setName(event.target.value)}
+        />
+        <StyledInput
+          type="password"
+          placeholder="password"
+          name="password"
+          onChange={(event) => setPassword(event.target.value)}
+        />
+        <StyledButton onClick={handleLogin}>Sign in</StyledButton>
         <StyledTitle>OR</StyledTitle>
-        <StyledInput type="text" placeholder="username" />
-        <StyledInput type="email" placeholder="email" />
-        <StyledInput type="password" placeholder="password" />
-        <StyledInput type="password" placeholder="confirm password" />
-        <StyledButton>Sign up</StyledButton>
+        <StyledInput
+          type="text"
+          placeholder="username"
+          name="username"
+          onChange={(event) => setUsername(event.target.value)}
+        />
+        <StyledInput
+          type="email"
+          placeholder="email"
+          name="email"
+          onChange={(event) => setEmail(event.target.value)}
+        />
+        <StyledInput
+          type="password"
+          placeholder="password"
+          name="password"
+          onChange={(event) => setPassword(event.target.value)}
+        />
+        <StyledButton onClick={handleSignup}>Sign up</StyledButton>
       </StyledWrapper>
       <StyledMoreSection>
         English(USA)
